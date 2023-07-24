@@ -213,13 +213,8 @@
                                             class="inline-flex items-center px-2 py-1 disabled:opacity-50 disabled:cursor-wait">
                                             <input
                                                 class="text-indigo-600 transition duration-150 ease-in-out border-gray-300 rounded shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 dark:bg-gray-900 dark:text-white dark:border-gray-600 dark:hover:bg-gray-600 dark:focus:bg-gray-600 disabled:opacity-50 disabled:cursor-wait"
-                                                @if ($component->allDefaultVisibleColumnsAreSelected()) 
-                                                    checked
-                                                    wire:click="deselectAllColumns"
-                                                @else
-                                                    unchecked
-                                                    wire:click="selectAllColumns" 
-                                                @endif
+                                                {{ $component->allDefaultVisibleColumnsAreSelected() ? 'checked' : 'unchecked' }}
+                                                wire:click="{{ $component->allDefaultVisibleColumnsAreSelected() ? 'deselectAllColumns' : 'selectAllColumns' }}"
                                                 wire:loading.attr="disabled" type="checkbox" />
                                             <span class="ml-2">{{ __('All Columns') }}</span>
                                         </label>
@@ -452,13 +447,8 @@
                             <div>
                                 <label wire:loading.attr="disabled" class="px-2 mb-1">
                                     <input
-                                        @if ($component->allDefaultVisibleColumnsAreSelected()) 
-                                            checked
-                                            wire:click="deselectAllColumns"
-                                        @else
-                                            unchecked
-                                            wire:click="selectAllColumns" 
-                                        @endif
+                                        {{ $component->allDefaultVisibleColumnsAreSelected() ? 'checked' : 'unchecked' }}
+                                        wire:click="{{ $component->allDefaultVisibleColumnsAreSelected() ? 'deselectAllColumns' : 'selectAllColumns' }}"
                                         wire:loading.attr="disabled" type="checkbox" />
                                     <span class="ml-2">{{ __('All Columns') }}</span>
                                 </label>
@@ -677,13 +667,8 @@
                             aria-labelledby="columnSelect-{{ $component->getTableName() }}">
                             <div class="form-check ms-2">
                                 <input
-                                    @if ($component->allDefaultVisibleColumnsAreSelected()) 
-                                        checked
-                                        wire:click="deselectAllColumns"
-                                    @else
-                                        unchecked
-                                        wire:click="selectAllColumns" 
-                                    @endif
+                                    {{ $component->allDefaultVisibleColumnsAreSelected() ? 'checked' : 'unchecked' }}
+                                    wire:click="{{ $component->allDefaultVisibleColumnsAreSelected() ? 'deselectAllColumns' : 'selectAllColumns' }}"
                                     wire:loading.attr="disabled" type="checkbox" class="form-check-input" />
                                 <label wire:loading.attr="disabled" class="form-check-label">
                                     {{ __('All Columns') }}
